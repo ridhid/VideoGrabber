@@ -1,0 +1,18 @@
+participant Scheduler
+participant Video
+
+loop
+    alt is_record_time
+        alt is_record
+            Scheduler->Video: record
+        end
+    else is_record
+        Scheduler->Video: stop
+    end
+    alt is_overload_time
+        Scheduler->Video: overload
+    end
+    alt is_cleaning_time
+        Scheduler->Sheduler: clean_old
+    end
+end

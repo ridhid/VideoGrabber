@@ -1,0 +1,10 @@
+loop
+    alt msg.get == record ot msg.get == overload
+        activate grab_loop
+            loop msg.get == record
+                    grab_loop -> grab_loop: grab
+            end
+    else
+        event_loop -> event_loop:sleep
+    end
+end

@@ -1,0 +1,14 @@
+Памятка администратору видео сервера.
+Кроме опций и их описания в конфигурационном файле важно знать:
+    1. Запуск через supervisor. (sudo apt-get install supervisor)
+       Настройка проста. Конфиг отсылается к себе подобным.
+       unklink supervisor.conf /etc/supervisor/conf.d/video.conf
+    2. О supervisor
+        Запус супервизора - самый обычный. sudo supervisord
+        Управление через supervisorctl. Синтаксис прост.
+        supervisorctl start\stop\status <имя скрипта в programm секции>
+    3  Об ошибках
+        Нет папки - создай.
+        Ошибка с сокетом - unlink < запись в конфиге [supervisorctl]serverurl>
+    4. Результаты работы
+        Server_IP:server_port/{1..n}
